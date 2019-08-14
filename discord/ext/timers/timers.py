@@ -145,6 +145,8 @@ class TimerManager:
 
             self._bot.dispatch(timer.name, *timer._args, **timer._kwargs)
 
+            self._current_timer = None
+
     def create_timer(self, name, expires, args=None, kwargs=None):
         """Create a timer to be scheduled for dispatching
 
