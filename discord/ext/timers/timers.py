@@ -137,14 +137,13 @@ class TimerManager:
     async def poll_timers(self):
         while True:
             self._current_timer = timer = await self.__timers.get()
-            self.__timers.task_done()
 
             time = (timer._expires - datetime.datetime.utcnow()).total_seconds()
 
             await chunked_sleep(time)
 
             self._bot.dispatch(timer.name, *timer._args, **timer._kwargs)
-
+            self.__timers.task_done()
             self._current_timer = None
 
     def create_timer(self, name, expires, args=None, kwargs=None):
