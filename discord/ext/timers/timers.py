@@ -191,7 +191,7 @@ class TimerManager:
 
     @property
     def done(self):
-        """::class:`bool` Whether or not the enternal task is done."""
+        """::class:`bool` Whether or not the internal task is done."""
         return self._task.done()
 
     def cancel(self):
