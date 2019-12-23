@@ -167,7 +167,6 @@ class TimerManager:
         # please bear with me for a second ok? ok
         # if you have any ideas on how to make this better I'll be glad to hear them
 
-        # we create a child timer, which is basically just a fancy dataclass
         timer = ChildTimer(name, expires, args, kwargs)
 
         # if there's a currently running timer and it will take more time then the new one
